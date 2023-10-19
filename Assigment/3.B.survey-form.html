@@ -1,0 +1,129 @@
+<!-- 3.HTML 
+  B.Create a survey form with Fields; First Name, Last Name, Date of Birth,
+   Country (dropdown), Gender (checkbox), Profession, email, and mobile number. All the input fields are 
+   necessary to submit the form. Create two buttons Submit and Reset. Reset will reset the form while clicking 
+   on submit, first, it will check all the fields and necessary validations
+   and then a popup will appear displaying all the selected values with the label in front of it. On-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Customer Survey Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: hsl(187, 94%, 49%);
+      }
+      form {
+        margin: 0 auto;
+        width: 400px;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: hsl(187, 94%, 49%);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        opacity: 0.8;
+      }
+      .container {
+        padding: 16px;
+        background-color: rgb(255, 255, 255);
+        width: 400px;
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form
+      name="myForm"
+      action="/submit_form"
+      onsubmit="return validateForm()"
+      method="post"
+    >
+    <h1>Customer Survey Form</h1>
+      <div class="container">
+        <label for="fname"><b>First Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter First Name"
+          name="fname"
+          required
+        />
+        <label for="lname"><b>Last Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter Last Name"
+          name="lname"
+          required
+        />
+
+        <label for="dob"><b>Date of Birth</b></label>
+        <input type="date" name="dob" required />
+
+        <label for="country"><b>Country</b></label>
+        <select id="country" name="country" required>
+          <option value="usa">India</option>
+          <option value="usa">Canada</option>
+          <option value="usa">USA</option>
+          <option value="canada">Australia</option>
+          <option value="others">Germany</option>
+          <option value="usa">Italy</option>
+          <option value="canada">Colombia</option>
+          <option value="others">France</option>
+        </select>
+
+        <label for="gender"><b>Gender</b></label>
+        <input type="radio" name="gender" value="male" required /> Male
+        <input type="radio" name="gender" value="female" required /> Female
+        <input type="radio" name="gender" value="other" required /> Other
+        <br><br>
+
+        <label for="profession"><b>Profession</b></label>
+        <input
+          type="text"
+          placeholder="Enter Profession"
+          name="profession"
+          required/>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required />
+
+        <label for="mobilenumber"><b>Mobile Number</b></label>
+        <input
+          type="tel"
+          placeholder="Enter Mobile Number"
+          name="mobilenumber"
+          required
+        />
+
+        <button type="submit" value="Submit">Submit</button>
+        <button type="reset" value="Reset">Reset</button>
+      </div>
+    </form>
+    <script>
+      function validateForm() {
+        let x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+          alert("Name must be filled out");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
